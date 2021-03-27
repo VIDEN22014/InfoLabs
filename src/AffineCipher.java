@@ -18,10 +18,11 @@ public class AffineCipher {
         int X;
         char[] inputString = inputScanner.nextLine().toUpperCase().toCharArray();
         String ouputString = "";
+        System.out.print("Вхідний текст : \t\t");
         for (char i : inputString) {
             System.out.print(i);
         }
-        System.out.println();
+        System.out.print("\nЗашифрований текст : \t");
         for (int i = 0; i < inputString.length; i++) {
             X = (keyA * intByChar(inputString[i]) + keyB) % 26;
             inputString[i] = charByInt(X);
@@ -52,10 +53,11 @@ public class AffineCipher {
             int X;
             char[] inputString = inputScanner.nextLine().toUpperCase().toCharArray();
             String ouputString = "";
+            System.out.print("Зашифрований текст : \t");
             for (char i : inputString) {
                 System.out.print(i);
             }
-            System.out.println();
+            System.out.print("\nРозшифрований текст : \t");
             for (int i = 0; i < inputString.length; i++) {
                 X = (inverseA * (intByChar(inputString[i]) + 26 - keyB)) % 26;
                 inputString[i] = charByInt(X);
