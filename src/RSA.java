@@ -6,7 +6,7 @@ public class RSA {
         }
         int n = p * q;
         int lambdaN = NOK((p - 1), (q - 1));
-        if (!isVzayemnoProsti(e, e) || lambdaN % e == 0) {
+        if (!isVzayemnoProsti(e, e) || NOD(lambdaN, e) != 1) {
             System.out.println("Помилка, число e неправильне");
             return;
         }
@@ -46,7 +46,7 @@ public class RSA {
 
     static int NOD(int a, int b) {
         while (a != 0 && b != 0) {
-            if (a > b) a = a % b; //для збільшення швидкості робимо через остачу від ділення
+            if (a > b) a = a % b;
             else b = b % a;
         }
         a = a + b;
